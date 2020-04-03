@@ -128,6 +128,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/vendor/etc/xtwifi.conf \
     $(LOCAL_PATH)/gps/etc/cacert_location.pem:system/vendor/etc/cacert_location.pem
 
+#Enable KEYMASTER 4.0 for Android P not for OTA's
+ifeq ($(strip $(TARGET_KERNEL_VERSION)), 4.9)
+    ENABLE_KM_4_0 := true
+endif
+
 # LineageActions
 PRODUCT_PACKAGES += \
     LineageActions
